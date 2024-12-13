@@ -1,6 +1,8 @@
 package dwn.cda.thebot;
 
+import dwn.cda.thebot.bot.Blague;
 import dwn.cda.thebot.bot.Bot;
+import dwn.cda.thebot.bot.Systemedejeu;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -17,7 +19,10 @@ import org.springframework.context.event.EventListener;
 public class ThebotApplication {
 
     @Autowired
+/*
     private Bot bot;
+*/
+    private Systemedejeu systemedejeu;
     private static String token;
 
     public static void main(String[] args) {
@@ -39,7 +44,8 @@ public class ThebotApplication {
                 .setChunkingFilter(ChunkingFilter.ALL)
                 .setBulkDeleteSplittingEnabled(false)
                 .setActivity(Activity.listening("les instructions"))
-                .addEventListeners(bot)
+                /*.addEventListeners(bot)*/
+                .addEventListeners(systemedejeu)
                 .build();
 
     }
